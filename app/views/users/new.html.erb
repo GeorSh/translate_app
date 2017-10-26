@@ -1,6 +1,7 @@
 <div><h1>Register</h1></div>
 
 <%= form_for @user do |f| %>
+  <%= render 'shared/errors', object: @user %>
 
   <div>
     <%= f.label :email %>
