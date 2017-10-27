@@ -1,7 +1,7 @@
-<div><h1>Register</h1></div>
+<div><h1>Sign In</h1></div>
 
-<%= form_for @user do |f| %>
-  <%= render 'shared/errors', object: @user %>
+<%= form_for @user_session do |f| %>
+  <%= render 'shared/errors', object: @user_session %>
 
   <div>
     <%= f.label :email %>
@@ -14,11 +14,11 @@
   </div>
 
   <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.label :remember_me %>
+    <%= f.check_box :remember_me %>
   </div>
 
-  <%= f.submit 'Register' %>
+  <%= f.submit "Log in!" %>
 <% end %>
 
 <%= link_to 'Back to translate', root_path %>

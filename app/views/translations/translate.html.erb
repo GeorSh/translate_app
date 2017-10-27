@@ -1,18 +1,26 @@
-<h1>Translate</h1> 
-<div class= "translate-main">
-  <%= form_for :translator, url: { action: :translate }, method: :get do |t| %>
-    <%= text_area_tag :text, params[:text], size: "40x10" %>
-    <%= select_tag :lang, options_for_select(@lang_list['dirs'].map{ |d| [d, d] } ) %>
-    <%= text_field_tag :priority_lang, params[:priority_lang], size: "3" %>
-    <%= t.submit 'Translate' %>
-  <% end %>
-
-  <% if params[:text] == nil %>
-    <%= text_area_tag 'result', nil, disabled: true, size: "40x10" %>
-    <p> Lang original: </p>
-  <% else %>
-    <%= text_area_tag 'result', @result['text'].first, disabled: true, size: "40x10" %>
-    <p> Lang original: <%= @autodetect['lang'] %> </p>
-  <% end %>
-
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Translate</title>
+</head>
+  <body>
+    <div class= "header">
+      <h1>Translate</h1>
+      <% if current_user %>
+        <ul>
+          <li><%= link_to 'Log out', logout_path %></li>
+        </ul>
+        <div class = "login_translate">
+          <%= render 'shared/translate_main_frame' %>
+        </div>
+      <% else %>
+        <ul>
+          <li><%= link_to 'Log in', login_path %></li>
+          <li><%= link_to 'Register', register_path %></li>
+        </ul>
+        <%= render 'shared/translate_main_frame' %>
+      <% end %>
+    </div>
+  </body>
+</html>
