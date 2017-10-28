@@ -5,13 +5,14 @@
   <title>Translate</title>
 </head>
   <body>
-    <div class= "header">
+    <div>
       <h1>Translate</h1>
       <% if current_user %>
         <ul>
+          <li><p>User: <%= current_user.email %></p></li>
           <li><%= link_to 'Log out', logout_path %></li>
         </ul>
-        <div class = "login_translate">
+        <div>
           <%= render 'shared/translate_main_frame' %>
         </div>
       <% else %>
