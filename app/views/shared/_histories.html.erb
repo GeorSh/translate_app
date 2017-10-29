@@ -1,0 +1,11 @@
+<div>
+<h1>History</h1>
+<table>
+  <% History.all.each do |h| %>
+    <tr>
+      <td><%= h.word %></td>
+      <td><%= h.translate %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
