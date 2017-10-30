@@ -3,6 +3,7 @@
 <table>
   <% History.all.each do |h| %>
     <tr>
+      <td><%= h.user_id %></td>
       <td><%= h.word %></td>
       <td><%= h.translate %></td>
     </tr>

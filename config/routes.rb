@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new'
   get 'register' => 'users#new'
 
+  resources :histories, only: [:new, :create]
+
+  get 'history' => 'histories#create'
 end

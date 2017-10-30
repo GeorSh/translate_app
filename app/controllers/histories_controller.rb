@@ -1,24 +1,23 @@
 class HistoriesController < ApplicationController
-  # def index
-  #   @histories = History.all
-  # end
-
+  
   def new
     @history = History.new
   end
 
   def create
-    @history = History.new(history_params)
+    @history = History.new(histories_params)
     if @history.save
+      flash[:success] = "History updated!"
       redirect_to root_path
     else
-      render :translate
+      redirect_to root_path
     end
   end
 
   private
 
-  def history_params
-    params.require(:history).permit(:word, :translate)
+  def histories_params
+    params.fetch(:history, {}).permit(:word, :translate)
   end
+
 end
