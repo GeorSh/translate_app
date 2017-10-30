@@ -1,9 +1,8 @@
 <div>
 <h1>History</h1>
 <table>
-  <% History.all.each do |h| %>
+  <% current_user.histories.each do |h| %>
     <tr>
-      <td><%= h.user_id %></td>
       <td><%= h.word %></td>
       <td><%= h.translate %></td>
     </tr>
