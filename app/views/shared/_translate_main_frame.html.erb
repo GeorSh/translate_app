@@ -21,7 +21,7 @@
   <%= form_for history do |h| %>
     <%= h.hidden_field :user_id, { :value => current_user.id } %>
     <%= h.hidden_field :word, { :value => params[:text] } %>
-    <%= h.hidden_field :translate, { :value => @result['text'].first } %>
+    <%= h.hidden_field :translate, { :value => @result } %>
     <%= h.submit 'Add to history' %>
   <% end %>
 <% end %>
